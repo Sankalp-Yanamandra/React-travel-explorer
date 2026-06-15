@@ -30,12 +30,15 @@ function DestinationDetails() {
    return <h2>Loading...</h2>;
  }
 
+  console.log(!destination.category)
  return (
    <div className="details">
      <img
        src={destination.image}
        alt={destination.name}
      />
+    {/* unlike map() below, even if no value given for below, eg.cstegory etc ,
+    doesn't show error since `undefined` and in JS : undefined is a datatype. */}
 
      <h1>{destination.name}</h1>
 
@@ -73,12 +76,13 @@ function DestinationDetails() {
 
      <h3>Top Attractions</h3>
 
+      {/* to handle case, when no attractions given using condtional rendering using && operator only */}
      <ul>
-       {destination.attractions.map(
+       {destination.attractions && (destination.attractions.map(
          (place, index) => (
            <li key={index}>{place}</li>
          )
-       )}
+       ))}
      </ul>
    </div>
  );

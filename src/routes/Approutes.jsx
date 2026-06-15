@@ -6,6 +6,11 @@ import Home from "../pages/Home";
 import Destinations from "../pages/Destinations";
 import DestinationDetails from "../pages/DestinationDetails";
 
+import AddDestination from "../pages/AddDestination";
+
+import EditDestination from "../pages/EditDestination";
+
+
 function AppRoutes() {
  return (
    <Routes>
@@ -23,6 +28,18 @@ function AppRoutes() {
        path="/destinations/:id"
        element={<DestinationDetails />}
      />
+
+      
+      <Route
+       path="/add-destination"
+      element={<AddDestination />}
+      />
+
+        <Route
+        path="/edit-destination/:id"
+        element={<EditDestination />}
+        />
+
    </Routes>
  );
 }
