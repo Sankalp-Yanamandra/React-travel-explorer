@@ -1,16 +1,23 @@
-# React + Vite
+react Redux (little old) 
+redux toolkit(recent and advanced)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+why?
+- resolve props drilling
+- global state management (database for logics in frontend)
 
-Currently, two official plugins are available:
+-store (think of as institution with frontend,backend,api trainer) in main.jsx to allow App to access this store.
+-Slice : each trainer/feature inside store
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+store App store
 
-## React Compiler
+-state : variable that handles react component's dynamic nature.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-reducer (similar to setState()) : fn to manipulate states globally.
 
-## Expanding the ESLint configuration
+-action type : a fn triggered by user (fn defined in reducer and called in action type)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-action payload : a data coming from the user.
+
+-useDispatch() hook : used to trigger the fn from the component. [send data to store]
+
+-useSelector() hook : used to get data from store. [get data from store]

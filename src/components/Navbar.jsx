@@ -1,48 +1,31 @@
-import React from 'react'
-
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Navbar() {
-    //   complete window reload inside Login(window.location.reload), 
-    // since Login and Navbar not related, so on window reload, now Navbar will see the updated Local Storage
-    // to check for user
-  const user =
-    JSON.parse(
-      localStorage.getItem("user")
-    );
 
+  const favorites = useSelector(
+    state => state.favorites
+  );
 
+  return (
 
- return (
-   <nav>
-     <Link to="/">Home</Link>
+    <nav>
 
-     <Link to="/destinations">
-       Destinations
-     </Link>
+      <Link to="/">
+        Home
+      </Link>
 
-    {!user && (
-            <>
-              <Link to="/register">
-                Register
-              </Link>
+      <Link to="/destinations">
+        Destinations
+      </Link>
 
-              <Link to="/login">
-                Login
-              </Link>
-            </>
-          )}
+      <Link to="/favorites">
+        Favorites ({favorites.length})
+      </Link>
 
-     {user && (
-        <Link to="/logout">
-          Logout
-        </Link>
-      )}
+    </nav>
 
-
-
-   </nav>
- );
+  );
 }
 
 export default Navbar;
